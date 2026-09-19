@@ -27,7 +27,6 @@ public class ProjectExceptionAdvice {
 
     @ExceptionHandler(value=Exception.class)
     public Result doException(Exception e) {
-        System.out.println("嘿嘿，异常你哪里跑");
         return new Result(Code.UNKNOWN_ERR,null,"系统繁忙，请稍后再试");
     }
 }

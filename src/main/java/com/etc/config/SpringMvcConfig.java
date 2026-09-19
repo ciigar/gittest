@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  */
 
 @Configuration
-@ComponentScan("com.etc.controller")
+@ComponentScan({"com.etc.controller","com.etc.config"})
 @EnableWebMvc
 public class SpringMvcConfig {
 }
