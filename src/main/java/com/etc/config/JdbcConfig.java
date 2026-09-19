@@ -3,6 +3,8 @@ package com.etc.config;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
@@ -32,5 +34,16 @@ public class JdbcConfig {
         dataSource.setUsername(username);
         dataSource.setPassword(password);
         return dataSource;
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource dataSource){
+        DataSourceTransactionManager ds = new DataSourceTransactionManager(dataSource());
+        /**
+         * dataSource不用方法导入
+         * 使用方法导入就成java代码相互调用
+         * 就不是Spring管理的了
+         */
+        ds.setDataSource(dataSource);
     }
 }
