@@ -45,5 +45,6 @@ public class JdbcConfig {
          * 就不是Spring管理的了
          */
         ds.setDataSource(dataSource);
+        return ds;
     }
 }
